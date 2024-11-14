@@ -11,16 +11,16 @@
 
 ## Примечания
 
-`lghub_heal.bat` - переустановит Logitech G Hub полностью, с сохранением настроек
+- `lghub_heal.bat` - переустановит Logitech G Hub полностью, с сохранением настроек
 (За язык установки программы отвечает строка language=ru_RU)
-`lghub_heal_without_update.bat` - такая же переустановка, но без перекачки установщика (скачает его один раз если его нет)
-`lghub_kill.bat` - остановит весь Logitech G Hub
-`lghub_uninstall.bat` - удалит весь Logitech G Hub с сохранением настроек
+- `lghub_heal_without_update.bat` - такая же переустановка, но без перекачки установщика (скачает его один раз если его нет)
+- `lghub_kill.bat` - остановит весь Logitech G Hub
+- `lghub_uninstall.bat` - удалит весь Logitech G Hub с сохранением настроек
 
 
 ## lghub_restart.bat
 
-`lghub_restart.bat` - перезапустит весь Logitech G Hub
+- `lghub_restart.bat` - перезапустит весь Logitech G Hub
 
 > [!NOTE]
 > 1. Открыть `lghub-path.txt` и указать путь к каталогу установленного G HUB
