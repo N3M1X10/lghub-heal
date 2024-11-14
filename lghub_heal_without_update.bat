@@ -32,28 +32,29 @@ sc pause "LGHUBUpdaterService"
 timeout /t 1 /nobreak >nul
 cls
 
-rem echo ! Скачиваю актуальный Logitech G Hub Installer
-rem echo.
-rem :: Пересоздаю папку
-rem rmdir /q /s %BIN%
-rem mkdir %BIN%
-rem :: Качаю установщик lghub через curl
-rem curl ^
-rem --output "%~dp0%BIN%\%installer%" ^
-rem "https://download01.logi.com/web/ftp/pub/techsupport/gaming/lghub_installer.exe"
-
-rem echo.
-rem echo Скачивание завершено
-rem ::пауза
-rem >nul timeout /t 1 /nobreak >nul
-rem cls
-
 IF EXIST "%BIN%\%installer%" (
 goto begin_heal
 ) else (
 echo Установщик не найден, продолжение не возможно 
-echo Нажмите любую кнопку чтобы выйти . . . &pause>nul&exit
+echo Скачиваю новый . . . &goto download-new
+rem echo Нажмите любую кнопку чтобы выйти . . . &pause>nul&exit
 )
+
+:download-new
+echo ! Скачиваю актуальный Logitech G Hub Installer
+echo.
+:: Пересоздаю папку
+rmdir /q /s %BIN%
+mkdir %BIN%
+:: Качаю установщик lghub через curl
+curl ^
+--output "%~dp0%BIN%\%installer%" ^
+"https://download01.logi.com/web/ftp/pub/techsupport/gaming/lghub_installer.exe"
+echo.
+echo Скачивание завершено
+::пауза
+>nul timeout /t 1 /nobreak >nul
+cls
 
 :begin_heal
 echo.
@@ -135,8 +136,9 @@ echo.
 set process_lghub=lghub.exe
 :cycle_lghub
 >nul timeout /t 1 /nobreak
-tasklist |>nul findstr /b /l /i /c:%process_lghub% && exit
+tasklist |>nul findstr /b /l /i /c:%process_lghub% && goto end
 set /a att_count=%att_count%+1
 goto cycle_lghub
 
+:end
 exit

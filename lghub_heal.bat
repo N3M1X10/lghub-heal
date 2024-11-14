@@ -32,6 +32,7 @@ sc pause "LGHUBUpdaterService"
 timeout /t 1 /nobreak >nul
 cls
 
+:download-new
 echo ! Скачиваю актуальный Logitech G Hub Installer
 echo.
 :: Пересоздаю папку
@@ -41,7 +42,6 @@ mkdir %BIN%
 curl ^
 --output "%~dp0%BIN%\%installer%" ^
 "https://download01.logi.com/web/ftp/pub/techsupport/gaming/lghub_installer.exe"
-
 echo.
 echo Скачивание завершено
 ::пауза
@@ -135,8 +135,10 @@ echo.
 set process_lghub=lghub.exe
 :cycle_lghub
 >nul timeout /t 1 /nobreak
-tasklist |>nul findstr /b /l /i /c:%process_lghub% && exit
+tasklist |>nul findstr /b /l /i /c:%process_lghub% && goto end
 set /a att_count=%att_count%+1
 goto cycle_lghub
 
+:end
+rmdir /q /s %BIN%
 exit
