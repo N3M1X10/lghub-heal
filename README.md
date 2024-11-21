@@ -11,7 +11,7 @@
 
 >[!NOTE]
 > - В случае неполадок попробуйте ручную переустановку через `bin\lghub_installer.exe`
-> - Также есть ссылка на официальный сайт разработчиков [Logitech G HUB Gaming Software](https://www.logitechg.com/en-us/innovation/g-hub.html?srsltid=AfmBOoqPUOqdb5AX2V5bWbM9IEHiQ8WXzg48YueU8MBH-d_waTX_CenI)
+> - Также есть ссылка на официальный сайт разработчиков [Logitech G HUB Gaming Software](https://www.logitechg.com/en-us/innovation/g-hub.html)
 
 ## Примечания
 
