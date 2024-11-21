@@ -9,8 +9,7 @@ cd /d "%~dp0"
 echo.
 echo ! Останавливаю всё связанное с G HUB . . .
 echo.
-rem taskkill /f /im ""
-taskkill /f /im "lghub.exe"
+taskkill /f /im "lghub.exe" /t
 taskkill /f /im "lghub_agent.exe"
 taskkill /f /im "lghub_updater.exe"
 taskkill /f /im "lghub_system_tray.exe"
