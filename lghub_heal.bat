@@ -1,6 +1,15 @@
 @echo off
-chcp 65001 >nul
+chcp 65001>nul
 title lghub healer (by n3m1x10)
+
+set "arg=%1"
+if "%arg%" == "admin" (
+    echo ! Перезапуск от имени администратора
+    echo.
+) else (
+    powershell -Command "Start-Process 'cmd.exe' -ArgumentList '/k \"\"%~f0\" admin\"' -Verb RunAs"
+    exit /b
+)
 
 set BIN=bin
 set installer=lghub_installer.exe
