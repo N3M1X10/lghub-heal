@@ -1,6 +1,15 @@
 @echo off
 chcp 65001>nul
 
+set "arg=%1"
+if "%arg%" == "admin" (
+    echo ! Restarted with Admin rights
+    echo.
+) else (
+    powershell -Command "Start-Process 'cmd.exe' -ArgumentList '/k \"\"%~f0\" admin\"' -Verb RunAs"
+    exit /b
+)
+
 :: LGHUB Path
 set path=C:\Program Files\LGHUB\
 

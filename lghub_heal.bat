@@ -6,7 +6,7 @@ title lghub-heal
 
 set "arg=%1"
 if "%arg%" == "admin" (
-    echo ! Перезапуск от имени администратора
+    echo ! Restarted with Admin rights
     echo.
 ) else (
     powershell -Command "Start-Process 'cmd.exe' -ArgumentList '/k \"\"%~f0\" admin\"' -Verb RunAs"

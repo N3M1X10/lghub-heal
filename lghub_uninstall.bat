@@ -4,6 +4,15 @@ title lghub_uninstall
 
 :: Source: https://github.com/N3M1X10/lghub-heal
 
+set "arg=%1"
+if "%arg%" == "admin" (
+    echo ! Restarted with Admin rights
+    echo.
+) else (
+    powershell -Command "Start-Process 'cmd.exe' -ArgumentList '/k \"\"%~f0\" admin\"' -Verb RunAs"
+    exit /b
+)
+
 echo ! closing whole lghub
 taskkill /f /im "lghub.exe" /t
 taskkill /f /im "lghub_agent.exe" /t
