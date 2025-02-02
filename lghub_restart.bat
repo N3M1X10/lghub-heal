@@ -11,11 +11,14 @@ taskkill /f /im "lghub_system_tray.exe"
 taskkill /f /im "lghub_crashpad_handler.exe"
 taskkill /f /im "lghub_software_manager.exe"
 
-sc pause "LGHUBUpdaterService"
-net stop "LGHUBUpdaterService"
+rem sc pause "LGHUBUpdaterService"
+rem net stop "LGHUBUpdaterService"
+powershell Stop-Service -name LGHUBUpdaterService -force
 
+>nul timeout /t 1 /nobreak
 
-start "%path%" "%path%lghub.exe"
+cd /d "%path%"
+start "" "lghub.exe"
 
 echo.
 exit
